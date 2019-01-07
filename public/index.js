@@ -172,7 +172,54 @@ for(var i= 0; i < events.length; i++)
 }
 
 
-step1();
+
+
+function step2()
+{
+	
+for(var i= 0; i < events.length; i++)
+{
+	//document.write(events[i].id);
+	for(var j= 0; j < bars.length; j++)
+{
+	if(events[i].barId==bars[j].id)
+	{
+		if (events[i].persons>10 && events[i].persons<=20 )
+		{
+			 
+			bars[j].pricePerPerson= bars[j].pricePerPerson-0.1*bars[j].pricePerPerson;
+			events[i].price= events[i].time*bars[j].pricePerHour+events[i].persons*bars[j].pricePerPerson;
+			
+			
+		}else if (events[i].persons>20 && events[i].persons<=60)
+		{
+			bars[j].pricePerPerson= bars[j].pricePerPerson-0.3*bars[j].pricePerPerson;
+			 events[i].price= events[i].time*bars[j].pricePerHour+events[i].persons*bars[j].pricePerPerson;
+			
+		}else if (events[i].persons>60)
+		{
+			bars[j].pricePerPerson= bars[j].pricePerPerson-0.5*bars[j].pricePerPerson;
+			 events[i].price= events[i].time*bars[j].pricePerHour+events[i].persons*bars[j].pricePerPerson;
+			
+			
+		}else {
+					events[i].price=events[i].time*bars[j].pricePerHour+events[i].persons*bars[j].pricePerPerson;
+
+			
+		}
+	
+	}
+	
+
+}
+
+}	
+	
+}
+
+
+//step1();
+step2();
 console.log(bars);
 console.log(events);
 console.log(actors);
