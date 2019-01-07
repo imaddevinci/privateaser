@@ -73,6 +73,8 @@ const events = [{
   }
 }];
 
+
+
 //list of actors for payment
 //useful from step 5
 const actors = [{
@@ -146,6 +148,31 @@ const actors = [{
   }]
 }];
 
+//step 1
+function step1()
+{
+	
+for(var i= 0; i < events.length; i++)
+{
+	//document.write(events[i].id);
+	for(var j= 0; j < bars.length; j++)
+{
+	if(events[i].barId==bars[j].id)
+	{
+		
+		events[i].price=events[i].time*bars[j].pricePerHour+events[i].persons*bars[j].pricePerPerson;
+		//document.write(events[i].price);
+	}
+	
+
+}
+
+}	
+	
+}
+
+
+step1();
 console.log(bars);
 console.log(events);
 console.log(actors);
