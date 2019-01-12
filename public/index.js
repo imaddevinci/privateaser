@@ -220,12 +220,13 @@ function step3()
 {
 	
 	step2();
-	
+
 	for(var i= 0; i < events.length; i++)
 {
-	events[i].commission.insurance=events[i].price/2;
+var commis = events[i].price-(events[i].price*0.3);	
+	events[i].commission.insurance=commis/2;
 	events[i].commission.treasury=events[i].persons;
-	events[i].commission.privateaser=events[i].price-events[i].commission.insurance-events[i].commission.treasury;
+	events[i].commission.privateaser=commis-events[i].commission.insurance-events[i].commission.treasury;
 	
 	
 }
@@ -246,6 +247,24 @@ function step3()
  }
  }
  }
+ 
+ 
+ function step5()
+{
+	
+for(var i= 0; i < events.length; i++)
+{
+	//document.write(events[i].id);
+	for(var j= 0; j < bars.length; j++)
+{
+	if(events[i].barId==bars[j].id)
+{
+	
+}
+}
+}
+}
+ 
 //step1();
 //step2();
 //step3();
