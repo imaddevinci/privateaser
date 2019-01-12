@@ -223,7 +223,7 @@ function step3()
 
 	for(var i= 0; i < events.length; i++)
 {
-var commis = events[i].price-(events[i].price*0.3);	
+var commis = events[i].price*0.3;	
 	events[i].commission.insurance=commis/2;
 	events[i].commission.treasury=events[i].persons;
 	events[i].commission.privateaser=commis-events[i].commission.insurance-events[i].commission.treasury;
@@ -283,14 +283,14 @@ if(actors[i].payment[index].who=='booker')
 	if (actors[i].payment[index].who=='insurance')
 	{
 		
-		actors[i].payment[index].amount=events[j].commission.insurance
+		actors[i].payment[index].amount=events[j].commission.insurance;
 		
 	}
 	
 	if (actors[i].payment[index].who=='treasury')
 	{
 		
-		actors[i].payment[index].amount=events[j].commission.treasury
+		actors[i].payment[index].amount=events[j].commission.treasury;
 		
 	}
 	
@@ -298,7 +298,7 @@ if(actors[i].payment[index].who=='booker')
 	if (actors[i].payment[index].who=='privateaser')
 	{
 		
-		actors[i].payment[index].amount=events[j].commission.privateaser
+		actors[i].payment[index].amount=events[j].commission.privateaser;
 		
 	}
 	}
