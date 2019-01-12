@@ -232,6 +232,7 @@ var commis = events[i].price-(events[i].price*0.3);
 }
 }
 
+
  function step4()
  {
 	
@@ -247,19 +248,60 @@ var commis = events[i].price-(events[i].price*0.3);
  }
  }
  }
- 
+
  
  function step5()
 {
+	step4();
+for(var i= 0; i < actors.length; i++)
+{
+
+	for(var j= 0; j < events.length; j++)
+{
+	if(actors[i].eventId==events[j].id)
+{
+	for (var index =0; index<actors[i].payment.length; index++ )
+	{	
+if(actors[i].payment[index].who=='booker')
+	{
+		if (events[i].options.deductibleReduction==true)
+		{		actors[i].payment[index].amount=events[j].price+events[j].persons;
+		}else{
+			
+			actors[i].payment[index].amount=events[j].price;
+		}
+		
+	}
+	if (actors[i].payment[index].who=='bar')
+	{
+		//var commi = events[j].commission.insurance+events[j].commission.treasury+events[j].commission.privateaser;
+		
+		actors[i].payment[index].amount=events[j].price-0.3*events[j].price;
+		
+	}
 	
-for(var i= 0; i < events.length; i++)
-{
-	//document.write(events[i].id);
-	for(var j= 0; j < bars.length; j++)
-{
-	if(events[i].barId==bars[j].id)
-{
+	if (actors[i].payment[index].who=='insurance')
+	{
+		
+		actors[i].payment[index].amount=events[j].commission.insurance
+		
+	}
 	
+	if (actors[i].payment[index].who=='treasury')
+	{
+		
+		actors[i].payment[index].amount=events[j].commission.treasury
+		
+	}
+	
+	
+	if (actors[i].payment[index].who=='privateaser')
+	{
+		
+		actors[i].payment[index].amount=events[j].commission.privateaser
+		
+	}
+	}
 }
 }
 }
@@ -268,7 +310,8 @@ for(var i= 0; i < events.length; i++)
 //step1();
 //step2();
 //step3();
-step4();
+//step4();
+step5();
 console.log(bars);
 console.log(events);
 console.log(actors);
