@@ -216,10 +216,24 @@ for(var i= 0; i < events.length; i++)
 }	
 	
 }
-
+function step3()
+{
+	
+	step2();
+	
+	for(var i= 0; i < events.length; i++)
+{
+	events[i].commission.insurance=events[i].price/2;
+	events[i].commission.treasury=events[i].persons;
+	events[i].commission.privateaser=events[i].price-events[i].commission.insurance-events[i].commission.treasury;
+	
+	
+}
+}
 
 //step1();
-step2();
+//step2();
+step3();
 console.log(bars);
 console.log(events);
 console.log(actors);
