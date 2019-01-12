@@ -231,9 +231,25 @@ function step3()
 }
 }
 
+ function step4()
+ {
+	
+	 step3();
+	
+	 for(var i= 0; i < events.length; i++)
+ {
+ if(events[i].options.deductibleReduction==true)
+ {
+ events[i].price+=events[i].persons;
+ events[i].commission.privateaser+=events[i].persons;
+
+ }
+ }
+ }
 //step1();
 //step2();
-step3();
+//step3();
+step4();
 console.log(bars);
 console.log(events);
 console.log(actors);
